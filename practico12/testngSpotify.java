@@ -57,13 +57,24 @@ public class testngSpotify {
         Assert.assertTrue(existente.contains("conectado a una cuenta"));
     }
     @Test
-    public void checkEqualEmailsError(){}
+    public void checkEqualEmailsError(){
+        driver.manage().window().maximize();
+        driver.findElement(By.xpath("//a[@data-ga-action='sign-up']")).click();
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("test999@test.com");
+        driver.findElement(By.xpath("//input[@id='confirm']")).sendKeys("hola@hola.com");
+        driver.findElement(By.id("password")).click();
+        String existente = driver.findElement(By.xpath("//*[@id=\"__next\"]/main/div[2]/form/div[2]/div[2]")).getText();
+        Assert.assertTrue(existente.contains("Las direcciones de correo electrónico no coinciden."));
+        //*[@id="__next"]/main/div[2]/form/div[2]/div[2]
+        //*[@id="__next"]/main/div[2]/form/div[2]/div[2]/text()
+    }
     @Test
     public void checkErrorMessages(){}
 
     @AfterTest
     public void cerar(){
-        driver.close();//*[@id="mh-mobile-navigation"]/ul/li[5]/a
+
+        //driver.close();//*[@id="mh-mobile-navigation"]/ul/li[5]/a
     }
 }
 
