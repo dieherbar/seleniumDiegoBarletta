@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="examenNivel1" verbose="1" >
+    <test name="probando-mailchimp" >
+        <classes>
+
+            <class name="ExamenNivelUno.Prueba_mailchimp"></class>
+
+        </classes>
+
+    </test>
+
+</suite>
